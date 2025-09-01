@@ -54,3 +54,42 @@ h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
 }
+
+/* Project style */
+
+
+:root {
+  --prime: #000;
+  --second: #603F83;
+  --accent: #C7D3D4;
+  --cold: #11dfff;
+  --warm: #ea5454;
+  --alert: #fca311;
+}
+
+body{
+  height: 100vh;
+
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--accent);
+}
+
+.logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 2rem;
+}
+
+.icon{
+  height: 48px;
+  width: auto;
+}
+
