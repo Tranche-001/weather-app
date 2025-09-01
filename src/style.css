@@ -69,7 +69,6 @@ h1, h2, h3, h4, h5, h6 {
 
 body{
   height: 100vh;
-
 }
 
 .content {
@@ -86,10 +85,49 @@ body{
   align-items: center;
   gap: 20px;
   padding: 2rem;
+  background-color: var(--second);
+  color: var(--accent);
+
 }
 
 .icon{
   height: 48px;
   width: auto;
+}
+
+/* search-section */
+
+.search-section {
+  padding: 2rem 0;
+}
+
+.search >form {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+form input {
+  border: none;
+  outline: none;
+  background-color: var(--second);
+  color: var(--accent);
+  font-size: 1.2rem;
+  border-radius: 3rem;
+  padding: 0.5rem 1.4rem;
+  height: 3rem;
+  width: 20rem;
+}
+
+form  button {
+  border: none;
+  font-size: 1.2rem;
+  padding: 0.5rem 1.4rem;
+  background-color: var(--second);
+  color: var(--accent);
+  border-radius: 3rem;
+  height: 3rem;
+  width: 7rem;
+  text-align: center;
 }
 
