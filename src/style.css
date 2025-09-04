@@ -64,7 +64,7 @@ h1, h2, h3, h4, h5, h6 {
   --prime: #000;
   --second: #603F83;
   --accent: #C7D3D4;
-  --cold: #11dfff;
+  --cold: #10bdd7;
   --warm: #ea5454;
   --alert: #fca311;
 }
@@ -80,7 +80,7 @@ body{
   background-color: var(--accent);
 }
 
-.logo {
+header {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -97,10 +97,15 @@ body{
   width: auto;
 }
 
+/* main-section */
+main{
+  padding: 2rem;
+}
+
 /* search-section */
 
 .search-section {
-  padding: 2rem 0;
+  padding-top: 2rem;
 }
 
 .search >form {
@@ -139,7 +144,7 @@ form  button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1rem 0;
+  margin-top: 1rem;
 }
 .city-status div {
   display: flex;
@@ -149,6 +154,12 @@ form  button {
 
 .city-status > p + p{
   margin-right: auto;
+}
+
+/* next-three-days-section */
+
+.next-three-days h1 {
+  margin: 3rem 0;
 }
 
 .days{
@@ -189,4 +200,93 @@ form  button {
 
   font-size: 50px;
 
+}
+
+.card .min-temp {
+  color: var(--cold);
+}
+
+.card .max-temp {
+  color: var(--warm);
+}
+
+.precipitation p {
+  background-color: rgb(17, 223, 255);
+}
+
+
+/* alert-section */
+.alerts {
+  display: flex;
+  flex-direction: column;
+}
+.alerts p {
+  background-color: var(--alert);
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  width: 75%;
+  margin: auto;
+}
+
+.alerts  h1{
+  margin: 3rem 0;
+}
+
+
+/* current-conditions-section */
+
+.current-conditions h1 {
+    margin: 3rem 0;
+
+}
+
+.table-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table#current-table {
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+  width: 75%;
+}
+
+table#current-table th {
+  background-color: var(--second);
+  color: var(--accent);
+  border-radius: 2rem 0 0 2rem;
+  width: 25%;
+}
+table#current-table td {
+  text-align: center;
+  border-radius: 0 2rem 2rem 0;
+  width: 25%;
+}
+
+table#current-table td, table#current-table th {
+  padding: 0.8rem;
+  border: solid 0.2rem var(--second);
+}
+
+table#current-table td > p {
+  display: inline-block;
+}
+
+/* footer-section */
+
+footer {
+  background-color: var(--alert);
+  text-align: center;
+  padding: 2rem;
+}
+
+
+footer a {
+  text-decoration: underline;
+  color: var(--prime);
+  padding: 0.2rem 0.4rem;
+  border-radius: 2rem;
+  background-color: var(--accent);  
+  transition: all 250ms ease;
 }

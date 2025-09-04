@@ -11,53 +11,181 @@
 
 <body>
   <div class="content">
-    <div class="logo">
+    <header>
       <h1>Tranche Weather App <i class="fi fi-rs-cloud-sun"></i></h1>
 
-    </div>
-    <div class="search-section">
-      <div class="search">
-        <form action="">
-          <input type="text" name="location" id="" placeholder="Search for location">
-          <button>Search</button>
-        </form>
-      </div>
-      <div class="city-status">
-        <div>
-          <h1><i class="fi fi-rs-cloud"></i></h1>
-          <h1>City Name, Temperature</h1>
+    </header>
+    <main>
+      <div class="search-section">
+        <div class="search">
+          <form action="">
+            <label for="location">
+              <input id="location" name="location" placeholder="Search for a location">
+            </label>
+            <button id="submit" type="submit">Search</button>
+          </form>
         </div>
-        <p>location</p>
-        <p>MORE STATUS</p>
-      </div>
-    </div>
-    <div class="next-three-days">
-      <h1>Next 3 Days</h1>
-      <div class="days">
-        <div class="card">
-          <h4>Today</h4>
-          <i class="fi fi-rs-cloud-sun"></i>
-          <p class="conditions">lopppppppppp</p>
-          <p class="temperature">1919219</p>
-          <div class="minmax">
-            <span class="min-temp">2323</span>
-            <span class="max-temp">2323</span>
+        <div class="city-status">
+          <div>
+            <h1><i class="fi fi-rs-cloud"></i></h1>
+            <h1>
+              <span id="city-name">city-name</span>,
+
+              <span id="temperature">Temperature</span>
+            </h1>
           </div>
-          <p class="precipitation">macarrao a bolonhosa</p>
+          <p>location</p>
+          <p>MORE STATUS</p>
         </div>
       </div>
-    </div>
-    <div class="alerts">
-      <h1>Alerts</h1>
-      <div class="alert-message"></div>
-    </div>
-    <div class="current-conditions">
-      <h1>Current Conditions at</h1>
-    </div>
-    <div class="footer">
+      <div class="next-three-days">
+        <h1>Next 3 Days</h1>
+        <div class="days">
+          <div class="card">
+            <h3>Today</h3>
+            <i class="fi fi-rs-cloud-sun"></i>
+            <p class="conditions">lopppppppppp</p>
+            <p class="temperature">1919219</p>
+            <div class="minmax">
+              <span class="min-temp">2323</span>
+              <span class="max-temp">2323</span>
+            </div>
+            <p class="precipitation" style="background-color: rgb(17, 223, 255);">macarrao a bolonhosa</p>
+          </div>
+        </div>
+      </div>
+      <div class="alerts">
+        <h1>Alerts</h1>
+        <p>There are no alerts</p>
+      </div>
+      <div class="current-conditions">
+        <h1>Current Conditions at</h1>
+        <div class="table-wrapper">
+
+          <table id="current-table">
+            <tbody>
+              <tr>
+                <th>Conditions</th>
+                <td>
+                  <p id="conditions">Overcast</p>
+                </td>
+              </tr>
+              <tr>
+                <th>Temperature</th>
+                <td>
+                  <p class="temperature">27.3</p>°C
+                </td>
+              </tr>
+              <tr>
+                <th>Feels like temperature</th>
+                <td>
+                  <p id="feels-like">27.8</p>°C
+                </td>
+              </tr>
+              <tr>
+                <th>Dew point</th>
+                <td>
+                  <p id="dew">16.3</p>°C
+                </td>
+              </tr>
+              <tr>
+                <th>Humidity</th>
+                <td>
+                  <p id="humidity">51.2</p>%
+                </td>
+              </tr>
+              <tr>
+                <th>Rainfall</th>
+                <td>
+                  <p id="rain-fall">0</p>mm
+                </td>
+              </tr>
+              <tr>
+                <th>Probability of rainfall</th>
+                <td>
+                  <p id="rain-probability">0</p>%
+                </td>
+              </tr>
+              <tr>
+                <th>Type of rain</th>
+                <td>
+                  <p id="rain-type">None</p>
+                </td>
+              </tr>
+              <tr>
+                <th>Pressure</th>
+                <td>
+                  <p id="pressure">1013</p>mb (hPa)
+                </td>
+              </tr>
+              <tr>
+                <th>Snowfall</th>
+                <td>
+                  <p id="snow-fall">0</p>mm
+                </td>
+              </tr>
+              <tr>
+                <th>Depth of snow</th>
+                <td>
+                  <p id="snow-depth">0</p>cm
+                </td>
+              </tr>
+              <tr>
+                <th>Sunrise</th>
+                <td>
+                  <p id="sunrise">06:22</p>
+                </td>
+              </tr>
+              <tr>
+                <th>Sunset</th>
+                <td>
+                  <p id="sunset">19:47</p>
+                </td>
+              </tr>
+              <tr>
+                <th>Wind direction *</th>
+                <td>
+                  <p id="wind-direction">199</p>°
+                </td>
+              </tr>
+              <tr>
+                <th>Wind speed</th>
+                <td>
+                  <p id="wind-speed">11</p>m/s - <span id="wind-speed-kmh">39.6</span> km/h
+                </td>
+              </tr>
+              <tr>
+                <th>Current wind speed</th>
+                <td>
+                  <p id="wind-current-speed">17.7</p>m/s - <span id="wind-current-speed-kmh">63.72</span> km/h
+                </td>
+              </tr>
+              <tr>
+                <th>Solar energy</th>
+                <td>
+                  <p id="solar-energy">1</p>W/m²
+                </td>
+              </tr>
+              <tr>
+                <th>Visibility</th>
+                <td>
+                  <p id="visibility">6.2</p>km
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+
+    <footer>
       <p>Develop by <a href="">Guilherme Tranche</a> - Licensed under MIT, using <a href=""> Visual Crossing Weather
           API</a></p>
-    </div>
+    </footer>
+
+
+
   </div>
 </body>
 
