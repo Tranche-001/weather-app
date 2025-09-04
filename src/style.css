@@ -22,6 +22,8 @@ body {
   line-height: 1.5;
   /* 5. Improve text rendering */
   -webkit-font-smoothing: antialiased;
+
+  font-size: 18px;
 }
 
 /* 6. Improve media defaults */
@@ -131,3 +133,60 @@ form  button {
   text-align: center;
 }
 
+/* city-status-section */
+
+.city-status{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0;
+}
+.city-status div {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.city-status > p + p{
+  margin-right: auto;
+}
+
+.days{
+
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  row-gap: 2rem;
+}
+
+
+.card {
+ 
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: var(--second);
+  color: var(--accent);
+  padding: 2rem;
+  border-radius: 2rem;
+
+}
+
+
+  .card p, .card div{
+  background-color: var(--accent);
+  color: var(--second);
+  padding: 0.8rem;
+  width: 15rem;
+  border-radius: 2rem;
+}
+
+.card i {
+
+  font-size: 50px;
+
+}
