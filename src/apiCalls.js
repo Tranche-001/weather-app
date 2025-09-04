@@ -1,9 +1,10 @@
 export const apiFunctions = (() => {
+
   async function getCityWeatherData(location) {
     const cityWeatherData = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=8S9DCAX8MUJWBZ9ATJ8BQH9BV`,  { mode: "cors" });
     const cityWeatherDataJson = await cityWeatherData.json();
-    return cityWeatherDataJson;
     
+    return cityWeatherDataJson
   }
 
   async function getCityName(location) {
@@ -13,6 +14,10 @@ export const apiFunctions = (() => {
     let cityName = cityWeatherDataJson.address.toLowerCase();
     cityName = cityName.charAt(0).toUpperCase() + cityName.slice(1);
     return cityName;
+  }
+
+  async function getTemperature(location) {
+    
   }
 
 
