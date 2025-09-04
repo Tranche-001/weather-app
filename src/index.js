@@ -29,5 +29,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function request(location) {
   const cityObject = await apiFunctions.getCityWeatherData(location);
-  domManipulator.updateCityName(cityObject.address);
+  domManipulator.updatePage(cityObject);
 }
