@@ -5,6 +5,8 @@ export const domManipulator = (() => {
   const updatePage = (cityObject) => {
     updateCityName(cityObject.address);
     updateTemperature(cityObject.currentConditions.temp);
+    updateCords(cityObject.latitude, cityObject.longitude);
+    updateDescription(cityObject.description);
 
   }
 
@@ -23,10 +25,17 @@ export const domManipulator = (() => {
 
   }
 
-  const updateCords = (cityCoords) => {
-
+  const updateCords = (cityCoordsLatitude, cityCoordsLongitude) => {
+    //Make it show only two digits
+    cityCoordsLatitude = parseFloat(cityCoordsLatitude.toFixed(2));
+    cityCoordsLongitude = parseFloat(cityCoordsLongitude.toFixed(2));
     const coordsNode = document.querySelector('#coords');
-    coordsNode.textContent = co
+    coordsNode.textContent =  cityCoordsLatitude + ", " + cityCoordsLongitude;
+  }
+
+  const updateDescription = (cityDescription) => {
+    const descriptionNode = document.querySelector("#description");
+    descriptionNode.textContent = cityDescription;
   }
 
 

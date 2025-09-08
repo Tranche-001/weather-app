@@ -104,10 +104,6 @@ main{
 
 /* search-section */
 
-.search-section {
-  padding-top: 2rem;
-}
-
 .search >form {
   display: flex;
   justify-content: center;
@@ -154,6 +150,11 @@ form  button {
 
 .city-status > p + p{
   margin-right: auto;
+}
+
+#coords {
+  margin: 1rem;
+
 }
 
 /* next-three-days-section */
