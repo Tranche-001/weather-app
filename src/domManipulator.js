@@ -7,7 +7,7 @@ export const domManipulator = (() => {
     updateTemperature(cityObject.currentConditions.temp);
     updateCords(cityObject.latitude, cityObject.longitude);
     updateDescription(cityObject.description);
-
+    updateAlert(cityObject.alerts)
     updateCurrConditions(cityObject);
 
   }
@@ -32,7 +32,7 @@ export const domManipulator = (() => {
     cityCoordsLatitude = parseFloat(cityCoordsLatitude.toFixed(2));
     cityCoordsLongitude = parseFloat(cityCoordsLongitude.toFixed(2));
     const coordsNode = document.querySelector('#coords');
-    coordsNode.textContent =  cityCoordsLatitude + ", " + cityCoordsLongitude;
+    coordsNode.textContent = cityCoordsLatitude + ", " + cityCoordsLongitude;
   }
 
   const updateDescription = (cityDescription) => {
@@ -42,68 +42,78 @@ export const domManipulator = (() => {
 
 
 
+  const updateAlert = (cityAlert) => {
+    const alertNode = document.querySelector('.alert');
+    if (cityAlert.length > 0) {
+      alertNode.textContent = cityAlert;
+    }
+
+  }
+
 
   // updateConditions
   const updateCurrConditions = (cityObject) => {
     const conditionsNode = document.querySelector('#conditions');
     conditionsNode.textContent = cityObject.currentConditions.conditions;
-    
+
     const temperatureNode = document.querySelector('.temperature');
     temperatureNode.textContent = cityObject.temperature;
-    
+
     const feelsLikeTemperatureNode = document.querySelector('#feels-like')
     feelsLikeTemperatureNode.textContent = cityObject.currentConditions.feelslike;
-    
+
     const dewNode = document.querySelector('#dew');
     dewNode.textContent = cityObject.currentConditions.dew;
-    
+
     const humidityNode = document.querySelector('#humidity')
     humidityNode.textContent = cityObject.currentConditions.humidity;
-    
+
     const rainFallNode = document.querySelector('#rain-fall');
     rainFallNode.textContent = cityObject.currentConditions.precip;
-   
+
     const rainProbabilityNode = document.querySelector('#rain-probability');
     rainProbabilityNode.textContent = cityObject.currentConditions.precipprob;
-   
+
     const pressureNode = document.querySelector('#pressure');
     pressureNode.textContent = cityObject.currentConditions.pressure;
-   
+
     const snowNode = document.querySelector('#snow-fall');
     snowNode.textContent = cityObject.currentConditions.snow;
-   
+
     const snowDepthNode = document.querySelector('#snow-depth');
     snowDepthNode.textContent = cityObject.currentConditions.snowdepth;
-   
+
     const sunriseNode = document.querySelector('#sunrise');
     sunriseNode.textContent = cityObject.currentConditions.sunrise;
-   
+
     const sunsetNode = document.querySelector('#sunset');
     sunsetNode.textContent = cityObject.currentConditions.sunset;
-   
+
     const windDirectionNode = document.querySelector('#wind-direction')
     windDirectionNode.textContent = cityObject.currentConditions.winddir;
-   
+
+    //parseFloat(item.toFixed(2)); is to show only the first two digits, if they exist.
     const windSpeedNode = document.querySelector('#wind-speed');
-    windSpeedNode.textContent = cityObject.currentConditions.windspeed
-   
+    windSpeedNode.textContent = parseFloat(cityObject.currentConditions.windspeed.toFixed(2)); 
+
+    //m/s -> km/h is *3.6
     const windSpeedKmhNode = document.querySelector('#wind-speed-kmh');
-    windSpeedKmhNode.textContent = cityObject.currentConditions.windspeed *3.6;
-    
+    windSpeedKmhNode.textContent = parseFloat(cityObject.currentConditions.windspeed.toFixed(2)) * 3.6;
+
     const windCurrSpeedNode = document.querySelector('#wind-current-speed');
     windCurrSpeedNode.textContent = cityObject.days[0].windspeed;
 
     const windCurrSpeedKmhNode = document.querySelector('#wind-current-speed-kmh');
-    windCurrSpeedKmhNode.textContent = cityObject.days[0].windspeed *3.6;
-    
+    windCurrSpeedKmhNode.textContent = cityObject.days[0].windspeed * 3.6;
+
     const solarEnergyNode = document.querySelector('#solar-energy');
     solarEnergyNode.textContent = cityObject.currentConditions.solarenergy;
-    
+
     const visibilityNode = document.querySelector('#visibility')
     visibilityNode.textContent = cityObject.currentConditions.visibility;
 
-    
-      
+
+
   }
 
 
