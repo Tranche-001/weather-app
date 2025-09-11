@@ -94,7 +94,7 @@ export const domManipulator = (() => {
 
     //parseFloat(item.toFixed(2)); is to show only the first two digits, if they exist.
     const windSpeedNode = document.querySelector('#wind-speed');
-    windSpeedNode.textContent = parseFloat(cityObject.currentConditions.windspeed.toFixed(2)); 
+    windSpeedNode.textContent = parseFloat(cityObject.currentConditions.windspeed.toFixed(2));
 
     //m/s -> km/h is *3.6
     const windSpeedKmhNode = document.querySelector('#wind-speed-kmh');
