@@ -117,6 +117,33 @@ export const domManipulator = (() => {
 
   }
 
+
+
+/*updateCard auxiliary function */
+  
+    const returnWeekDayName = (date) => {
+      let newDate = new Date(date);
+      let dayNum = newDate.getDay();
+      console.log(dayNum);
+      switch (dayNum) {
+        case 0:
+          return 'Sunday';
+        case 1:
+          return 'Monday';
+        case 2:
+          return 'Tuesday';
+        case 3:
+          return 'Wednesday';
+        case 4:
+          return 'Thursday';
+        case 5:
+          return 'Fryday';
+        case 6:
+          return 'Saturday';
+
+      }
+    }
+
   const updateCards = (cityObject) => {
     for (let i = 0; i < 4; i++) {
       const dayNode = document.querySelector(`#day${i}`);
@@ -134,9 +161,13 @@ export const domManipulator = (() => {
       const precipitationNode = dayNode.querySelector('.precipitation');
       precipitationNode.textContent = `${cityObject.days[i].precipprob}% chance of rain`;
 
-
+      //If the day is after tomorrow, show the dayName we are talking about;
+      if (i > 1) {
+        const dayHeader = dayNode.querySelector('h3');
+        
+        dayHeader.textContent = returnWeekDayName(cityObject.days[i].datetime);
+      }
     }
-
 
 
 
