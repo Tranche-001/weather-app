@@ -185,6 +185,7 @@ form  button {
   color: var(--accent);
   padding: 2rem;
   border-radius: 2rem;
+  text-align: center;
 
 }
 

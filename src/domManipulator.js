@@ -9,6 +9,7 @@ export const domManipulator = (() => {
     updateDescription(cityObject.description);
     updateAlert(cityObject.alerts)
     updateCurrConditions(cityObject);
+    updateCards(cityObject);
 
   }
 
@@ -111,6 +112,31 @@ export const domManipulator = (() => {
 
     const visibilityNode = document.querySelector('#visibility')
     visibilityNode.textContent = cityObject.currentConditions.visibility;
+
+
+
+  }
+
+  const updateCards = (cityObject) => {
+    for (let i = 0; i < 4; i++) {
+      const dayNode = document.querySelector(`#day${i}`);
+      const dayConditionsNode = dayNode.querySelector('.conditions');
+      dayConditionsNode.textContent = cityObject.days[i].conditions;
+      const dayTemperatureNode = dayNode.querySelector('.temperature');
+      dayTemperatureNode.textContent = `${cityObject.days[i].temp} °C`;
+
+      const minTempNode = dayNode.querySelector('.min-temp');
+      minTempNode.textContent = cityObject.days[i].tempmin;
+
+      const maxTempNode = dayNode.querySelector('.max-temp');
+      maxTempNode.textContent = cityObject.days[i].tempmax;
+
+      const precipitationNode = dayNode.querySelector('.precipitation');
+      precipitationNode.textContent = `${cityObject.days[i].precipprob}% chance of rain`;
+
+
+    }
+
 
 
 
