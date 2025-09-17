@@ -95,17 +95,17 @@ export const domManipulator = (() => {
 
     //parseFloat(item.toFixed(2)); is to show only the first two digits, if they exist.
     const windSpeedNode = document.querySelector('#wind-speed');
-    windSpeedNode.textContent = parseFloat(cityObject.currentConditions.windspeed.toFixed(2));
+    windSpeedNode.textContent = parseFloat(cityObject.currentConditions.windspeed).toFixed(2);
 
     //m/s -> km/h is *3.6
     const windSpeedKmhNode = document.querySelector('#wind-speed-kmh');
-    windSpeedKmhNode.textContent = parseFloat(cityObject.currentConditions.windspeed.toFixed(2)) * 3.6;
+    windSpeedKmhNode.textContent = (parseFloat(cityObject.currentConditions.windspeed) * 3.6).toFixed(2);
 
     const windCurrSpeedNode = document.querySelector('#wind-current-speed');
-    windCurrSpeedNode.textContent = cityObject.days[0].windspeed;
+    windCurrSpeedNode.textContent = (parseFloat(cityObject.days[0].windspeed)*3.6).toFixed(2);
 
     const windCurrSpeedKmhNode = document.querySelector('#wind-current-speed-kmh');
-    windCurrSpeedKmhNode.textContent = cityObject.days[0].windspeed * 3.6;
+    windCurrSpeedKmhNode.textContent = (parseFloat(cityObject.days[0].windspeed) * 3.6).toFixed(2);
 
     const solarEnergyNode = document.querySelector('#solar-energy');
     solarEnergyNode.textContent = cityObject.currentConditions.solarenergy;
@@ -119,34 +119,55 @@ export const domManipulator = (() => {
 
 
 
-/*updateCard auxiliary function */
-  
-    const returnWeekDayName = (date) => {
-      let newDate = new Date(date);
-      let dayNum = newDate.getDay();
-      console.log(dayNum);
-      switch (dayNum) {
-        case 0:
-          return 'Sunday';
-        case 1:
-          return 'Monday';
-        case 2:
-          return 'Tuesday';
-        case 3:
-          return 'Wednesday';
-        case 4:
-          return 'Thursday';
-        case 5:
-          return 'Fryday';
-        case 6:
-          return 'Saturday';
+  /*updateCard auxiliary function */
 
-      }
+  const returnWeekDayName = (date) => {
+    let newDate = new Date(date);
+    let dayNum = newDate.getDay();
+    console.log(dayNum);
+    switch (dayNum) {
+      case 0:
+        return 'Sunday';
+      case 1:
+        return 'Monday';
+      case 2:
+        return 'Tuesday';
+      case 3:
+        return 'Wednesday';
+      case 4:
+        return 'Thursday';
+      case 5:
+        return 'Fryday';
+      case 6:
+        return 'Saturday';
+
     }
+  }
+
+  const decideNewIcon = (icon) => {
+    console.log(icon)
+    switch(icon) {
+      case "rain":
+        return "fi fi-rs-cloud-showers-heavy";
+      case "clear-day":
+        return "fi fi-rs-sun";
+      case "cloudy":
+        return "fi fi-rs-clouds";
+      case "partly-cloudy-day":
+        return "fi fi-rs-clouds-sun";
+      default:
+        return "fi fi-rs-sun";
+    }
+  }
 
   const updateCards = (cityObject) => {
     for (let i = 0; i < 4; i++) {
       const dayNode = document.querySelector(`#day${i}`);
+
+      const dayIcon = document.querySelector(`#icon${i}`);
+      dayIcon.setAttribute('class', decideNewIcon(cityObject.days[i].icon))
+
+
       const dayConditionsNode = dayNode.querySelector('.conditions');
       dayConditionsNode.textContent = cityObject.days[i].conditions;
       const dayTemperatureNode = dayNode.querySelector('.temperature');
@@ -164,7 +185,7 @@ export const domManipulator = (() => {
       //If the day is after tomorrow, show the dayName we are talking about;
       if (i > 1) {
         const dayHeader = dayNode.querySelector('h3');
-        
+
         dayHeader.textContent = returnWeekDayName(cityObject.days[i].datetime);
       }
     }
