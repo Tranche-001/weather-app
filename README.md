@@ -1,5 +1,5 @@
 # Weather app
-This weather allows you to see all weather conditions of any location(city, state, country, continent) with a clean and simple interface.
+This weather app allows you to see all weather conditions of any location(city, state, country, continent) with a clean and simple interface.
 ## See it live
 https://tranche-001.github.io/weather-app/
 # 🚀 Lessons Learned
